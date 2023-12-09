@@ -1,0 +1,11 @@
+.idea
+.air.toml
+docker-compose*
+Dockerfile
+.git
+tmp
+README.md
+package.json
+yarn.lock
+tests
+codecept.conf.js

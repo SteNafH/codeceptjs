@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  app:
+    image: cosmtrek/air
+    working_dir: /app
+    ports:
+      - '42069:42069'
+    volumes:
+      - .:/app
+
+  go:
+    image: golang:1.21.1
+    working_dir: /app
+    entrypoint: go
+    volumes:
+      - .:/app
+
+  yarn:
+    image: node:18.14.0-alpine
+    entrypoint: yarn
+    working_dir: /app
+    volumes:
+      - ./web:/app
+      - ~/.cache/yarn:/usr/local/share/.cache/yarn

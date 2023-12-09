@@ -6,7 +6,7 @@ Scenario('Accept cookies', ({I}) => {
     LoginPage.visit();
 
     I.doSomethingTest();
-    I.click('Got it!');
+    I.click('Got it');
 });
 
 Scenario('Successful Login', ({I}) => {

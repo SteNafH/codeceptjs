@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  app-test:
+    build: .
+
+  codeceptjs:
+    image: mcr.microsoft.com/playwright:v1.40.0-jammy
+    working_dir: /app
+    entrypoint: [ './node_modules/.bin/codeceptjs' ]
+    environment:
+      BASE_URL: http://app-test:42069
+      HEADLESS: 'true'
+    volumes:
+      - .:/app
+
+  yarn:
+    image: node:18.14.0-alpine
+    entrypoint: yarn
+    working_dir: /app
+    environment:
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+    volumes:
+      - .:/app
+      - ~/.cache/yarn:/usr/local/share/.cache/yarn
