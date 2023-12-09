@@ -1,0 +1,18 @@
+{
+  "name": "codeceptjs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "codeceptjs run"
+  },
+  "devDependencies": {
+    "@codeceptjs/configure": "^0.10.0",
+    "@codeceptjs/helper": "^2.0.1",
+    "codeceptjs": "^3.5.10",
+    "playwright": "^1.40.1"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

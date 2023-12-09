@@ -1,0 +1,49 @@
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+}
+
+main {
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 5px;
+}
+
+#cookieBanner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 20px;
+    padding: 10px;
+    background-color: white;
+    max-width: 400px;
+    box-shadow: 0 4px 6px 0 rgba(0,0,0,0.2), 5px 5px 10px 0 rgba(0,0,0,0.19);
+}
+
+@media screen and (min-width: 600px) {
+    main {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    main {
+        max-width: 960px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    main {
+        max-width: 1140px;
+    }
+}
