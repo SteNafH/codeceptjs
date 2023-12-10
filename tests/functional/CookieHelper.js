@@ -11,7 +11,7 @@ class CookieHelper extends Helper {
         await browserContext.addCookies(this.config.defaultCookies);
     }
 
-    _handleSecureCookies() {
+    _handleCookies() {
         if (!this.config.alwaysSetCookies) {
             return;
         }
@@ -50,7 +50,7 @@ class CookieHelper extends Helper {
 
     async _before() {
         await this._handleDefaultCookies();
-        this._handleSecureCookies();
+        this._handleCookies();
     }
 }
 
