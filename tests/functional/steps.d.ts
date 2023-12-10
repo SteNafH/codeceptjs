@@ -1,7 +1,7 @@
 /// <reference types='codeceptjs' />
 type steps_file = typeof import('./I.js');
 type LoginPage = typeof import('./login/LoginPage.js');
-type CookieHelper = import('./CookieHelper.js');
+type CookieHelper = import('./CookieHelper.js')
 
 declare namespace CodeceptJS {
     interface SupportObject { I: I, current: any, LoginPage: LoginPage }

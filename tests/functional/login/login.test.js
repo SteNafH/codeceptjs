@@ -5,8 +5,7 @@ Feature('Login');
 Scenario('Accept cookies', ({I}) => {
     LoginPage.visit();
 
-    I.doSomethingTest();
-    I.click('Got it');
+    I.dontSee('This website uses cookies to ensure you get the best experience on our website.');
 });
 
 Scenario('Successful Login', ({I}) => {

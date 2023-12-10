@@ -25,10 +25,6 @@ class CookieHelper extends Helper {
             await browserContext.addCookies(newCookies);
         }
     }
-
-    doSomethingTest() {
-        console.log('hoi')
-    }
 }
 
 module.exports = CookieHelper;
