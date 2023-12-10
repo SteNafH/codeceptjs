@@ -25,7 +25,8 @@ exports.config = {
         JSONResponse: {},
         CookieHelper: {
             require: './tests/functional/CookieHelper.js',
-            defaultCookies: [{name: 'cookie', value: 'name', url: url}]
+            defaultCookies: [{name: 'cookie', value: 'name', url: url}],
+            alwaysSetCookies: true
         }
     },
     include: {

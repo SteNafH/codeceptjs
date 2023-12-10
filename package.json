@@ -10,7 +10,8 @@
     "@codeceptjs/configure": "^0.10.0",
     "@codeceptjs/helper": "^2.0.1",
     "codeceptjs": "^3.5.10",
-    "playwright": "^1.40.1"
+    "playwright": "^1.40.1",
+    "set-cookie-parser": "^2.6.0"
   },
   "dependencies": {
     "express": "^4.18.2"

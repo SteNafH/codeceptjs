@@ -28,11 +28,7 @@
 </main>
 
 <script>
-    function initCookieBanner() {
-        if (Cookies.get('cookie')) {
-            return;
-        }
-
+    if (!Cookies.get('cookie')) {
         const cookieBanner = document.createElement('div');
         cookieBanner.id = "cookieBanner";
 
@@ -49,7 +45,6 @@
         cookieBanner.append(cookieText, cookieButton);
         document.body.append(cookieBanner);
     }
-    initCookieBanner();
 </script>
 
 </body>
