@@ -19,32 +19,29 @@ class CookieHelper extends Helper {
         const {browserContext, page} = this.helpers.Playwright;
 
         page.on('response', async (response) => {
-            const newCookiesString = await response.headerValue('Set-Cookie');
+            const cookies = await response.headerValues('Set-Cookie')
+                .then(setCookie.parse)
+                .then(cookies => cookies.flat());
             await response.finished();
 
-            if (!newCookiesString) {
+            if (!cookies.length) {
                 return;
             }
 
-            const newCookies = setCookie.parse(newCookiesString);
+            const referer = await response.request().headerValue('referer');
+            const url = new URL(referer);
 
-            if (!newCookies.length) {
-                return;
-            }
-
-            const requestHeaders = await response.request().allHeaders();
-            const requestUrl = new URL(requestHeaders.referer);
-
-            for (const cookie of newCookies) {
+            for (const cookie of cookies) {
                 cookie.expires = Math.floor(cookie.expires.getTime() / 1000);
+                cookie.sameSite = cookie.sameSite.charAt(0).toUpperCase() + cookie.sameSite.slice(1);
 
-                if (!cookie.url && (!cookie.domain && !cookie.path)) {
-                    cookie.domain = requestUrl.hostname;
-                    cookie.path = requestUrl.pathname;
+                if (!cookie.url) {
+                    cookie.domain ||= url.hostname;
+                    cookie.path ||= url.pathname;
                 }
             }
 
-            await browserContext.addCookies(newCookies);
+            await browserContext.addCookies(cookies);
         });
     }
 

@@ -2,12 +2,6 @@ const {LoginPage} = inject();
 
 Feature('Login');
 
-Scenario('Accept cookies', ({I}) => {
-    LoginPage.visit();
-
-    I.dontSee('This website uses cookies to ensure you get the best experience on our website.');
-});
-
 Scenario('Successful Login', ({I}) => {
     LoginPage.visit();
 

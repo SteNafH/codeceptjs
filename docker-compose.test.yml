@@ -2,6 +2,8 @@ version: '3.8'
 services:
   app-test:
     build: .
+    ports:
+      - '42069:42069'
 
   codeceptjs:
     image: mcr.microsoft.com/playwright:v1.40.0-jammy
